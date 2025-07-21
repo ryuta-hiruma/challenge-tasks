@@ -1,5 +1,6 @@
 from datetime import datetime
 import json
+import sys
 
 # jsonファイル名定義
 filename = 'user_age.json'
@@ -11,8 +12,10 @@ try:
         # print("Json_type:" + str(type(json_data)))
 except json.JSONDecodeError:
     print(f'###エラー：ファイル{filename}は正しいJSON形式ではありません###')
+    sys.exit()
 except FileNotFoundError:
     print(f'###エラー：ファイル{filename}が見つかりません###')
+    sys.exit()
 
 # JSONファイルの内容表示
 # print(json_data)
